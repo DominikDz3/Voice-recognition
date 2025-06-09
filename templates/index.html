@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+        <p>Najpierw zarejestruj swój głos i nazwę użytkownika a następnie spróbuj się zalogować wykorzystując tę samą nazwę</p>
+        <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg" type="button">
+            <i class="bi bi-person-plus-fill"></i> Zarejestruj się
+        </a>
+        <a href="{{ url_for('login') }}" class="btn btn-success btn-lg" type="button">
+            <i class="bi bi-box-arrow-in-right"></i> Zaloguj się
+        </a>
+    </div>
+</div>
+{% endblock %}

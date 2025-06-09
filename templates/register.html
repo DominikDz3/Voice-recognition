@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4">Rejestracja Głosu</h2>
+                <p class="text-center text-muted">
+                    Wypowiedz krótką, łatwą do powtórzenia frazę, np. "Banan", "Hasło". Pamiętaj, aby użyć tej samej frazy podczas logowania.
+                </p>
+                <form id="voice-form" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nazwa użytkownika</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    
+                    <div class="text-center my-4">
+                        <button type="button" id="record-button" class="btn btn-primary btn-lg">
+                            <i class="bi bi-mic"></i> Nagraj Głos
+                        </button>
+                    </div>
+
+                    <div id="recording-indicator" class="recording-indicator mb-3">
+                        <div class="pulsing-dot"></div>
+                        <span>Nagrywanie...</span>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success" disabled id="submit-button">Zarejestruj</button>
+                    </div>
+                    
+                    <input type="file" name="voice" id="voice-file-input" style="display: none;">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/recorder.js') }}"></script>
+{% endblock %}
