@@ -39,15 +39,15 @@ Celem projektu jest przedstawienie komponentu biometrycznego - voice. Głos czł
 
 \section{Opis wykorzystywanego oprogramowania i narzędzi}
 \begin{itemize}
-	\item Python - główny język programowania na którym opiera się cały projekt
-	\item Flask - framework Pythona który posłużył do stworzenia szaty graficznej projektu (strony internetowej na której odbywa się weryfikacja głosowa)
+	\item \textbf{Python} - główny język programowania na którym opiera się cały projekt
+	\item \textbf{Flask} - framework Pythona który posłużył do stworzenia szaty graficznej projektu (strony internetowej na której odbywa się weryfikacja głosowa)
 	\item Biblioteki Pythona
 	\begin{itemize}
 		\item \textbf{numpy} - jest jedną z głównych elementów projektu. Wykorzystana została do stworzenia tablicy jednowymiarowej w której przechowywane są liczby zmiennoprzecinkowe stworzone przez inną bibliotekę librosa, reprezentujące głos. Potrzebna jest również do uproszczenia operacji matematycznych oraz pozwala na zarządzanie macierzami zawartymi w kodzie
-		\item librosa - biblioteka ta w projekcie ma szczególnie zadanie, odpowiada ona za cały aspekt analizy dźwięku. Dzięki niej wczytywany jest głos oraz dekodowany, wstępnie oczyszcza dźwięk (np. usuwa sekundy ciszy z nagrania) oraz najważniejsze odpowiada za wydobycie cech biometrycznych z głosu.
-		\item SciPy  moduł scipy.spatial.distance - biblioteka ta to olbrzymi zbiór gotowych maszyn i narzędzi matematycznych, inżynierskich i naukowych
-		\item pydub - 
-		\item os - biblioteka ta posłużyła do obsługi plików i folderów
+		\item \textbf{librosa} - biblioteka ta w projekcie ma szczególnie zadanie, odpowiada ona za cały aspekt analizy dźwięku. Dzięki niej wczytywany jest głos oraz dekodowany, wstępnie oczyszcza dźwięk (np. usuwa sekundy ciszy z nagrania) oraz najważniejsze odpowiada za wydobycie cech biometrycznych z głosu.
+		\item \textbf{SciPy  moduł scipy.spatial.distance} - biblioteka ta to olbrzymi zbiór gotowych maszyn i narzędzi matematycznych, inżynierskich i naukowych
+		\item \textbf{pydub} - ta biblioteka posłużyła jako narzędzie do manipulacji i przetwarzania plików audio. W kontekście projektu jej główna rola to przyjmowanie plików głosowych, a następnie konwertuje je do formatu WAV. 
+		\item \textbf{os} - biblioteka ta posłużyła do obsługi plików i folderów
 		
 	\end{itemize}	
 \end{itemize}	
@@ -80,7 +80,16 @@ Po zarejestrowaniu się należy przejść do logowania. Tutaj ponownie podajemy 
 \end{figure}
 
 \section{Instrukcja nagrywania próbki głosu}
-
+Aby poprawnie nagrać próbkę głosu należy spełnić dane warunki:
+\begin{itemize}
+	\item Przygotować odpowiedni sprzęt: poprawnie działający mikrofon
+	\item Mówić jednolitym tonem 
+	\item Wypowiedzieć proste hasło, najlepiej zkładające się z dwóch słów
+	\item Przy rejestracji i logowaniu posłużyć się tym samym zwrotem, mówiąc w takim samym tonie i tempie
+	\item Upewnić się że nagrania nie zakłucają odgłosy z otoczenia
+	\item Nagrać próbkę trwającą około dwie lub trzy sekundy
+	
+\end{itemize}
 
 
 \section{Wnioski}
@@ -95,4 +104,12 @@ Na podstawie przeprowadzonych eksperymentów można stwierdzić, że:
 \begin{itemize}
     \item MATLAB Image Processing Toolbox Documentation \cite{mathworks},
     \item Rafael Gonzalez, Richard Woods, Digital Image Processing Global Edition \cite{gonzalez2017}.
+    \item Flask Documentation. Pallets.  \cite{flask_docs}
+    \item Pydub Documentation. Read the Docs.  \cite{pydub_docs}
+    \item Librosa Documentation  \cite{librosa_docs}
+    \item SciPy Documentation  \cite{scipy_docs}
+    \item NumPy Documentation \cite{numpy_docs}
+    \item scikit-learn Documentation  \cite{scikitlearn_docs}
+    \item FFmpeg Documentation  \cite{ffmpeg_docs}
+    
 \end{itemize}

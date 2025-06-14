@@ -7,8 +7,7 @@
 \contentsline {section}{\numberline {1.5}Instrukcja nagrywania próbki głosu}{8}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Wnioski}{8}{section.1.6}%
 \contentsline {section}{\numberline {1.7}Bibliografia}{8}{section.1.7}%
-\contentsline {section}{\textbf {Bibliografia}}{9}{section.1.7}%
-\contentsline {section}{\textbf {Spis rysunków}}{10}{chapter*.5}%
-\contentsline {section}{\textbf {Spis tabel}}{11}{chapter*.5}%
+\contentsline {section}{\textbf {Bibliografia}}{10}{section.1.7}%
+\contentsline {section}{\textbf {Spis rysunków}}{11}{chapter*.5}%
 \contentsline {section}{\textbf {Spis listingów}}{12}{chapter*.5}%
 \contentsline {section}{\textbf {Oświadczenie studenta o samodzielności pracy}}{13}{chapter*.7}%

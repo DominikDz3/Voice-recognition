@@ -4,45 +4,51 @@
 Matlab image processing toolbox documentation, 2024.
 \newblock Accessed: 2025-02-15.
 
-\bibitem{example2024}
-Title of the webpage, 2024.
-\newblock Accessed: 2024-09-16.
-
-\bibitem{ARM06}
-Ada Europe.
-\newblock {\em Ada Reference Manual {ISO}/{IEC} 8652:200y({E}) {E}d. 3}, 2006.
-
-\bibitem{BuDo03}
-A.~Burns and B.~Dobbing.
-\newblock The {R}avenscar {P}rofile for real--time and high integrity systems.
-\newblock {\em Cross{T}alk}, 16(11):9--12, 2003.
-
-\bibitem{BuDoVa03}
-A.~Burns, B.~Dobbing, and T.~Vardanega.
-\newblock Guide for the use of the ada ravenscar profile in high integrity
-  systems.
-\newblock Technical Report YCS-2003-348, University of York, 2003.
-
-\bibitem{Dil00}
-A.~Diller.
-\newblock {\em LaTeX wiersz po wierszu}.
-\newblock Wydawnictwo Helion, Gliwice, 2000.
+\bibitem{ffmpeg_docs}
+{FFmpeg}.
+\newblock {FFmpeg Documentation}.
+\newblock \url{https://ffmpeg.org/documentation.html}.
+\newblock Dostęp: 14 czerwca 2025.
 
 \bibitem{gonzalez2017}
 Rafael Gonzalez and Richard Woods.
 \newblock {\em {Digital Image Processing Global Edition}}.
 \newblock Pearson Deutschland, 2017.
 
-\bibitem{Lam92}
-L.~Lamport.
-\newblock {\em LaTeX system przygotowywania dokumentów}.
-\newblock Wydawnictwo Ariel, Kraków, 1992.
+\bibitem{librosa_docs}
+{Librosa}.
+\newblock {Librosa Documentation}.
+\newblock \url{https://librosa.org/doc/latest/index.html}.
+\newblock Dostęp: 14 czerwca 2025.
 
-\bibitem{PeDa04}
-J.~Peleska, D.~Große, A.~E. Haxthausen, and R.~Drechsler.
-\newblock Automated verification for train control systems.
-\newblock In {\em Proc. of the 5th Symposium on Formal Methods for Automation
-  and Safety in Railway and Automotive Systems (FORMS/FORMAT 2004)}, pages
-  252--265, Braunschweig, Germany, December 2004.
+\bibitem{numpy_docs}
+{NumPy}.
+\newblock {NumPy Documentation}.
+\newblock \url{https://numpy.org/doc/stable/}.
+\newblock Dostęp: 14 czerwca 2025.
+
+\bibitem{flask_docs}
+{Pallets}.
+\newblock {Flask Documentation}.
+\newblock \url{https://flask.palletsprojects.com/en/latest/}.
+\newblock Dostęp: 14 czerwca 2025.
+
+\bibitem{pydub_docs}
+{Read the Docs}.
+\newblock {Pydub Documentation}.
+\newblock \url{https://pydub.readthedocs.io/en/stable/}.
+\newblock Dostęp: 14 czerwca 2025.
+
+\bibitem{scikitlearn_docs}
+{scikit-learn}.
+\newblock {scikit-learn Documentation}.
+\newblock \url{https://scikit-learn.org/stable/documentation.html}.
+\newblock Dostęp: 14 czerwca 2025.
+
+\bibitem{scipy_docs}
+{SciPy}.
+\newblock {SciPy Documentation}.
+\newblock \url{https://docs.scipy.org/doc/scipy/reference/}.
+\newblock Dostęp: 14 czerwca 2025.
 
 \end{thebibliography}
