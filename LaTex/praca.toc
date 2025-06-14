@@ -1,0 +1,14 @@
+\babel@toc {polish}{}\relax 
+\contentsline {chapter}{\numberline {1}Informacje ogólne}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Opis ogólny projektu}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Wstęp teoretyczny}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Opis wykorzystywanego oprogramowania i narzędzi}{6}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Działanie programu}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Instrukcja nagrywania próbki głosu}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Wnioski}{8}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Bibliografia}{8}{section.1.7}%
+\contentsline {section}{\textbf {Bibliografia}}{9}{section.1.7}%
+\contentsline {section}{\textbf {Spis rysunków}}{10}{chapter*.5}%
+\contentsline {section}{\textbf {Spis tabel}}{11}{chapter*.5}%
+\contentsline {section}{\textbf {Spis listingów}}{12}{chapter*.5}%
+\contentsline {section}{\textbf {Oświadczenie studenta o samodzielności pracy}}{13}{chapter*.7}%

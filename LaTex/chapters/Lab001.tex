@@ -1,0 +1,98 @@
+\chapter{Informacje ogólne}
+\label{cha:Lab001}
+\makeatletter
+
+
+% *********************************************************************
+% w poniższej metryczce należy uzupełnić informacje o:
+% - temacie ćwiczenia
+% - numer ćwiczenia
+% - numer grupy laboratoryjnej
+% - numer zespołu
+% - datę wykonania ćwiczenia oraz oddania ćwiczenia.
+% *********************************************************************
+
+\begin{table}[H]
+    \centering
+    \renewcommand{\tabularxcolumn}[1]{m{#1}}  % Dostosowanie kolumny do zawartości
+    \newcolumntype{C}{>{\centering\arraybackslash}X}
+    \begin{tabularx}{\linewidth}{|C|C|}
+        \hline
+        \multicolumn{2}{|c|}{\makecell{\textbf{\Large{Biometryczne Systemy Zabezpieczeń}} \\ \textbf{Projekt}}} \\ \hline
+        \multicolumn{1}{|l|}{Temat}                    &           Weryfikacja głosowa na stronie internetowej                \\ \hline
+        \multicolumn{1}{|l|}{Technologie}                       &       Python, framework - Flask, platforma FFmpeg               \\ \hline
+        \multicolumn{1}{|l|}{Biometryka}                    &           Voice             \\ \hline
+        \multicolumn{1}{|l|}{Autorzy}                         &   \@author                              \\ \hline
+        \multicolumn{1}{|l|}{Grupa laboratoryjna}                       &       02               \\ \hline
+        
+        
+    \end{tabularx}
+\end{table}
+
+
+\section{Opis ogólny projektu}
+Celem projektu jest przedstawienie komponentu biometrycznego - voice. Głos człowieka może być zastosowany jako unikalne zabezpieczenie (np. podczas logowania, lub innego zabezpieczenia zasobów). Komponent ten został zaimplementowany na stronie internetowej jako zabezpieczenie konta użytkownika. Użytkownik ma możliwość nagrać próbkę swojego głosu z wypowiadając daną frazę, a następnie przechodząc do logowania nagrywa ponownie próbkę głosu z tą samą frazą, po czym następuje weryfikacja. Obsługa komponentu biometrycznego została napisana w pythonie z użyciem odpowiednich bibliotek, a prosta witryna internetowa do jego wykorzystania została napisana we frameworku pythona - Flask. 
+
+\section{Wstęp teoretyczny}
+
+
+
+\section{Opis wykorzystywanego oprogramowania i narzędzi}
+\begin{itemize}
+	\item Python - główny język programowania na którym opiera się cały projekt
+	\item Flask - framework Pythona który posłużył do stworzenia szaty graficznej projektu
+	\item Biblioteki Pythona
+	\begin{itemize}
+		\item numpy - 
+		\item librosa - 
+		\item scipy.spatial.distance - 
+		\item pydub - 
+		\item os - biblioteka ta posłużyła do obsługi plików i folderów
+		
+	\end{itemize}	
+\end{itemize}	
+
+
+
+\section{Działanie programu}
+Działanie projektu zaczynamy od strony głównej na której jest rejestracja i logowanie. W pierwszym kroku użytkownik rejestruje się nagrywając próbkę głosu. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{src/images/strona_glowna.png}
+	\caption{Obraz strony głównej}
+\end{figure}
+
+Po kliknięciu "Zarejestruj się" przechodzimy do strony rejestracji. Tutaj podawana jest nazwa użytkownika i nagrywana próbka głosu (około 2 do 3 sekundy). 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{src/images/nagranie_probki_glosu.png}
+	\caption{Obraz strony rejestracji}
+\end{figure}
+
+Po zarejestrowaniu się należy przejść do logowania. Tutaj ponownie podajemy nazwę użytkownika i nagrywana jest kolejna próbka, która jest porównywana do tej podanej podczas rejestracji. Jeżeli próbki będą zgodne, użytkownik przechodzi poprawnie przez weryfikację lub nie przechodzi, w każdym przypadku zostaje o tym poinformowany stosownym komunikatem. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{src/images/weryfikacja_probki_glosu.png}
+	\caption{Obraz strony logowania}
+\end{figure}
+
+\section{Instrukcja nagrywania próbki głosu}
+
+
+
+\section{Wnioski}
+Na podstawie przeprowadzonych eksperymentów można stwierdzić, że:
+\begin{itemize}
+    \item Histogram jest przydatnym narzędziem w analizie jakości obrazu biometrycznego.
+    \item Wyrównanie histogramu poprawia kontrast i może zwiększać czytelność obrazu.
+    \item Segmentacja oparta na histogramie, w szczególności metoda Otsu, pozwala na skuteczne wydzielenie istotnych cech obrazu.
+\end{itemize}
+
+\section{Bibliografia}
+\begin{itemize}
+    \item MATLAB Image Processing Toolbox Documentation \cite{mathworks},
+    \item Rafael Gonzalez, Richard Woods, Digital Image Processing Global Edition \cite{gonzalez2017}.
+\end{itemize}
