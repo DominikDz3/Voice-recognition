@@ -40,12 +40,12 @@ Celem projektu jest przedstawienie komponentu biometrycznego - voice. Głos czł
 \section{Opis wykorzystywanego oprogramowania i narzędzi}
 \begin{itemize}
 	\item Python - główny język programowania na którym opiera się cały projekt
-	\item Flask - framework Pythona który posłużył do stworzenia szaty graficznej projektu
+	\item Flask - framework Pythona który posłużył do stworzenia szaty graficznej projektu (strony internetowej na której odbywa się weryfikacja głosowa)
 	\item Biblioteki Pythona
 	\begin{itemize}
-		\item numpy - 
-		\item librosa - 
-		\item scipy.spatial.distance - 
+		\item \textbf{numpy} - jest jedną z głównych elementów projektu. Wykorzystana została do stworzenia tablicy jednowymiarowej w której przechowywane są liczby zmiennoprzecinkowe stworzone przez inną bibliotekę librosa, reprezentujące głos. Potrzebna jest również do uproszczenia operacji matematycznych oraz pozwala na zarządzanie macierzami zawartymi w kodzie
+		\item librosa - biblioteka ta w projekcie ma szczególnie zadanie, odpowiada ona za cały aspekt analizy dźwięku. Dzięki niej wczytywany jest głos oraz dekodowany, wstępnie oczyszcza dźwięk (np. usuwa sekundy ciszy z nagrania) oraz najważniejsze odpowiada za wydobycie cech biometrycznych z głosu.
+		\item SciPy  moduł scipy.spatial.distance - biblioteka ta to olbrzymi zbiór gotowych maszyn i narzędzi matematycznych, inżynierskich i naukowych
 		\item pydub - 
 		\item os - biblioteka ta posłużyła do obsługi plików i folderów
 		
