@@ -20,7 +20,7 @@
         \hline
         \multicolumn{2}{|c|}{\makecell{\textbf{\Large{Biometryczne Systemy Zabezpieczeń}} \\ \textbf{Projekt}}} \\ \hline
         \multicolumn{1}{|l|}{Temat}                    &           Weryfikacja głosowa na stronie internetowej                \\ \hline
-        \multicolumn{1}{|l|}{Technologie}                       &       Python, framework - Flask, platforma FFmpeg               \\ \hline
+        \multicolumn{1}{|l|}{Technologie}                       &       Python, JavaScript, framework - Flask, narzędzie FFmpeg               \\ \hline
         \multicolumn{1}{|l|}{Biometryka}                    &           Voice             \\ \hline
         \multicolumn{1}{|l|}{Autorzy}                         &   \@author                              \\ \hline
         \multicolumn{1}{|l|}{Grupa laboratoryjna}                       &       02               \\ \hline
@@ -35,11 +35,70 @@ Celem projektu jest przedstawienie komponentu biometrycznego - voice. Głos czł
 
 \section{Wstęp teoretyczny}
 
+Głos jest jedną z wyjątkowych i bardzo ciekawym narzędziem które może mieć bardzo szerki zakres zastosowań w zabezpieczeniach biometrycznych. Łączy on w sobie dwa aspekty które wpływają na jego unikalność:
 
+\begin{itemize}
+	\item Cechy fizyczne głosu - w tym punkacie zawarte są np kształt i rozmiar traktu głosowego, strun głosowch i płuc. Podobnie jak inne części ciała wykorzystywane w biometrii (np. tęczówka, linie papilarne), te cechy głosu są również dla każdego człowieka unikalne
+	\item Cechy behawioralne - na te cechy wpływa akcent, tonacja, rytm czy tempo. Są to cechy które wykształciły się na przeztrzeni lat u każdej osoby
+\end{itemize}
+W projekcie wykorzystywana jest kombinacja obu tych aspektów aby stworzyć koncepcję systemu który mógłby zostać częściej wykorzystywany jako główne zabezpieczenie zasobów.
+\newline
+Projekt ten działa w dwóch fazach
+
+\subsection{Rejestracja}
+W tej fazie system najpierw potrzebuje wzorca bimetrycznego, który będzie później wykorzystywany w głównej fazie projektu.
+\\
+\\
+\textbf{Pobranie danych}\newline
+Użytkownik wypowiada swoje hasło (frazę potrzebną później do weryfikacji). Mikrofon w komputerze przetwarza fale ciśnienia akustcznego na sygnał elektryczny. Natępnie przeglądarka przy pomocy skryptu (JavaScript) digitalizuje go i koduje na format \textbf{.webm}
+\newline
+\\
+\textbf{Pzetwarzanie wstępne}\newline
+W tym kroku surowy plik .webm jest przesyłąny do analizy. Wykorzystywana jest biblioteka \textbf{pydub} aby przekształcić ten plik do formatu .wav z częstotliwością 16000Hz i kanałem mono. Jest to działanie istotne by zachować spójność
+\newline
+\\
+\textbf{Wydobycie cech biometrycznych}\newline
+Jest to najważniejszy krok w projekcie. System nie porównuje bezpośrednio plików dźwiękowych ponieważ byłoby to nieefektywne z tego powodu z sygnału audio wydobywane są jego cechy charakterystyczne. W przypadku tego projektu są to \textbf{Współczynniki Cepstralne w Skali Mel (MFCC)}
+\newline
+\\
+\textbf{Współczynniki Cepstralne w Skali Mel (MFCC)} - jest to zbiór kilkunastu liczb które w połączeniu tworzą numeryczną reprezentację barwy dźwięku w krótkim fragmencie czasu
+\newline
+\\
+Najpierw następnuje wczytanie pliku .wav jako talibcy liczb (numpy). Następnie z sygnału usuwana jest cisza by system skupił się tylko na głównej części czyli wypowiedzianej frazie. Na końcu Librosa analizuje sygnał klatka po klatce w bardzo krótkich fragmentach i dla każdej z nich oblicza 13 współczynników MFCC. Liczby te opisują kształt widma, czyli barwę dźwięku w sposób który jest odporny na zmiany głośności i tonu
+\newline
+Efektem tych działań jest wydobyty wzorzec biometryczny - macierz cech. Jest to tabela liczb, w której wiersze to kolejne ramy czasowe a kolumny to współczynniki MFCC.
+\newline
+\\
+\textbf{Zapisanie wzorca}\newline
+W tym projekcie dla uproszczenia zapisujemy cały plik .wav. Za każdym razem gdy system potrzebuje wzorca, cechy są z niego wydobywane na nowo
+
+\subsection{Weryfikacja}
+W tej fazie następuje werfyikacja czy nowa próbka głosu jest podobna do zapisanego wzorca
+\\
+\\
+\textbf{Dla próbki do weryfikacji punkty pobranie danych, przetwarzanie wstępne i wydobycie cech biometrycznych są powtarzane.}
+\\
+\\
+Teraz system mając dwie macierze cech z obu próbek musi je porównać. Na tym etapie jednak pojawia się pewien problem, użytkownik mimo że będzie to ta sama osoba nigdy nie powtórzy idealnie i w tym samym tempie wypowiedzianej frazy. By rozwiązać ten problem w projkecie został wykorzystany alogorytm \textbf{Dynamicznego Dopasowania Czasu - DTW}
+\\
+\\
+\textbf{Alogorytm Dynamicznego Dopasowania Czasu - DTW} - jest to metoda służąca porównaniu dwóch sekwencji (w tym przypadku czasowych), któa potrafi poradzić sobie z różnicami w tempie.
+Głównym zadaniem tego algorytmu jest znalezenie optymalnego dopasowania między elemetnami jednej sekwencji a drugiej by łączna różnia między dopasowanymi elementami była jak najmniejsza.
+\\
+\\
+W pierwszej kolejności tworzona jest mapa kosztów lokalnych. W tym celu wykorzystywana jest funkacja \textbf{cdist} z biblioteki scipy. Tworzy ona macierz gdzie każda komórka zawiera informację jak bardzo różni się i-ta ramka z pierwszego nagrania od j-tej ramki z drugiego nagrania, obliczając dystans euklidesowy między współczynnikami MFCC
+\newline
+\\
+Następnie algorytm DTW przechodzi przez macierz kosztów i znajduje ścieżkę o najmniejszym łącznym koszcie. Im ta wartość jest mniejsza tym głosy są bardziej podobne
+Efektem jego działania jest skumulowany dystans. Jest to finalny wynik porównania biometrycznego
+\\
+\\
+Ostatni punkt to określenie na podstawie prostego warunku logicznego czy obliczona odległość jest wyższa lub niższa od skalibrowanego wcześniej progu decyzyjnego na podstawie którego użytkownik jest zweryfikowany lub nie.  
 
 \section{Opis wykorzystywanego oprogramowania i narzędzi}
 \begin{itemize}
 	\item \textbf{Python} - główny język programowania na którym opiera się cały projekt
+	\item \textbf{JavaScript} - język skyrptowy, który posłuzył do stworzenia systemu nagrywania głosu (dynamicznie działające przyciski, zapisywanie głosu w danym formacie)
 	\item \textbf{Flask} - framework Pythona który posłużył do stworzenia szaty graficznej projektu (strony internetowej na której odbywa się weryfikacja głosowa)
 	\item Biblioteki Pythona
 	\begin{itemize}
@@ -55,7 +114,9 @@ Celem projektu jest przedstawienie komponentu biometrycznego - voice. Głos czł
 
 
 \section{Działanie programu}
-Działanie projektu zaczynamy od strony głównej na której jest rejestracja i logowanie. W pierwszym kroku użytkownik rejestruje się nagrywając próbkę głosu. 
+Najważniejszą rzeczą przed uruchomieniem projektu jest pobranie i dodanie do zmiennych środowiskowych narzędzia FFMPEG. Jest ono potrzebne do poprawnego działania biblioteki pydub.
+\newline
+Działanie projektu zaczyna od strony głównej na której jest rejestracja i logowanie. W pierwszym kroku użytkownik rejestruje się nagrywając próbkę głosu. 
 
 \begin{figure}[H]
 	\centering
@@ -84,7 +145,7 @@ Aby poprawnie nagrać próbkę głosu należy spełnić dane warunki:
 \begin{itemize}
 	\item Przygotować odpowiedni sprzęt: poprawnie działający mikrofon
 	\item Mówić jednolitym tonem 
-	\item Wypowiedzieć proste hasło, najlepiej zkładające się z dwóch słów
+	\item Wypowiedzieć proste hasło, najlepiej zkładające się z jednego lub dwóch słów
 	\item Przy rejestracji i logowaniu posłużyć się tym samym zwrotem, mówiąc w takim samym tonie i tempie
 	\item Upewnić się że nagrania nie zakłucają odgłosy z otoczenia
 	\item Nagrać próbkę trwającą około dwie lub trzy sekundy
