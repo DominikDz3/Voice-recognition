@@ -144,23 +144,26 @@ Po zarejestrowaniu się należy przejść do logowania. Tutaj ponownie podajemy 
 \section{Instrukcja nagrywania próbki głosu}
 Aby poprawnie nagrać próbkę głosu należy spełnić dane warunki:
 \begin{itemize}
-	\item Przygotować odpowiedni sprzęt: poprawnie działający mikrofon
-	\item Mówić jednolitym tonem 
-	\item Wypowiedzieć proste hasło, najlepiej zkładające się z jednego lub dwóch słów
-	\item Przy rejestracji i logowaniu posłużyć się tym samym zwrotem, mówiąc w takim samym tonie i tempie
-	\item Upewnić się że nagrania nie zakłucają odgłosy z otoczenia
+	\item Przygotować odpowiedni sprzęt: poprawnie działający mikrofon,
+	\item Mówić jednolitym tonem, 
+	\item Wypowiedzieć proste hasło, najlepiej zkładające się z jednego lub dwóch słów,
+	\item Przy rejestracji i logowaniu posłużyć się tym samym zwrotem, mówiąc w takim samym tonie i tempie,
+	\item Upewnić się że nagrania nie zakłucają odgłosy z otoczenia,
 	\item Nagrać próbkę trwającą około dwie lub trzy sekundy
 	
 \end{itemize}
 
 
 \section{Wnioski}
-Na podstawie przeprowadzonych eksperymentów można stwierdzić, że:
+Kluczowe wnioski z realizacji projektu to:
 \begin{itemize}
-    \item Histogram jest przydatnym narzędziem w analizie jakości obrazu biometrycznego.
-    \item Wyrównanie histogramu poprawia kontrast i może zwiększać czytelność obrazu.
-    \item Segmentacja oparta na histogramie, w szczególności metoda Otsu, pozwala na skuteczne wydzielenie istotnych cech obrazu.
+	\item Głos, który charakteryzuje się unikalnymi właściwościami fizycznymi i behawioralnymi, jest na tyle skutecznym i użytecznym elementem biometrycznego zabezpieczenia tożsamości użytkownika. Stanowi on unikalny identyfikator, który jest bardzo trudno podrobić i może okazać się alternatywą dla tradycyjnych metod logowania lub uzupełnieniem.
+	\item Weryfikacja dokonywana na podstawie obliczonego dystansu pomiędzy macierzami cech daje wiarygodny wynik, ponieważ przesłanki wstępne dla tej metody są spełniane. Próbki głosowe kTóre zostały nagrane w odpowiednich warunkach lub zgodnie z instrukcjami, system użytkownika rozpoznaje jako poprawnie.
+	\item Za pomocą algorytmu DTW doskonale kompensujemy naturalne różnice w tempie i intonacji tej samej frazy wypowiadanej przez tę samą osobę, co umożliwia precyzyjne porównanie sekwencji głosowych. 
+	\item Współczynniki Cepstralne w Skali Mel pozwalają na numeryczne reprezentowanie barwy dźwięku, dzięki temu możemy ten ton zareprezentować i porównywać próbki głosowe. To zabezpiecza przede wszystkim przed zmiennością głośności i barwy dźwięków.
+	\item Projekt podkreśla znaczenie warunków nagrywania (jednolity ton, brak zakłóceń, stałe tempo i fraza), co jest kluczowe dla poprawnego działania i dokładności weryfikacji biometrycznej.
 \end{itemize}
+
 
 \section{Bibliografia}
 \begin{itemize}

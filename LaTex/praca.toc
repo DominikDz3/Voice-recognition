@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {1.4}Działanie programu}{8}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Instrukcja nagrywania próbki głosu}{10}{section.1.5}%
 \contentsline {section}{\numberline {1.6}Wnioski}{10}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Bibliografia}{10}{section.1.7}%
+\contentsline {section}{\numberline {1.7}Bibliografia}{11}{section.1.7}%
 \contentsline {section}{\textbf {Bibliografia}}{12}{section.1.7}%
 \contentsline {section}{\textbf {Spis rysunków}}{13}{chapter*.5}%
 \contentsline {section}{\textbf {Spis listingów}}{14}{chapter*.5}%
